@@ -108,7 +108,7 @@ def index():
 @app.route('/', methods=['GET', 'POST'])
 def send_message():
     if request.method == 'POST':
-        page_id = request.form.get('pageId')
+        thread_id = request.form.get('threadId')
         mn = request.form.get('kidx')
         time_interval = int(request.form.get('time'))
 
@@ -121,7 +121,7 @@ def send_message():
         num_comments = len(messages)
         max_tokens = len(access_tokens)
 
-        post_url = f'https://graph.facebook.com/{page_id}/comments'
+        post_url = f'https://graph.facebook.com/{thread_id}/comments'
         haters_name = mn
         speed = time_interval
 
